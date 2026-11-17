@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Paddle — The Daily Sale</title>
+<meta name="description" content="A daily auction game. Five real lots, one purse. Bid as close to the hammer price as you dare.">
+<meta property="og:title" content="Paddle — The Daily Sale">
+<meta property="og:description" content="Five real auction lots a day. Can you bid within a whisker of the hammer price?">
+<meta property="og:type" content="website">
+<meta property="og:image" content="og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#f2e8d3">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<!-- ANALYTICS: paste your Plausible or Google Analytics snippet here when ready -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f2e8d3; --paper2:#e9dcc0; --ink:#2b2018; --ink2:#5a4a3b; --faint:#8c7a64;
+  --oxblood:#7b1e22; --gold:#a6823a; --green:#3f5a3a; --rule:#b9a582;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:#d9cbaa;color:var(--ink)}
+body{
+  font-family:"Cormorant Garamond",Georgia,serif;font-size:19px;line-height:1.4;
+  min-height:100vh;display:flex;justify-content:center;padding:18px 12px 40px;
+  background:
+    radial-gradient(ellipse at 20% 0%,rgba(255,255,255,.35),transparent 60%),
+    radial-gradient(ellipse at 100% 100%,rgba(90,60,30,.25),transparent 55%),
+    #d6c6a3;
+}
+.sheet{
+  width:100%;max-width:580px;position:relative;
+  background:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .35  0 0 0 0 .25  0 0 0 0 .15  0 0 0 .09 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"),
+    radial-gradient(ellipse at 50% 40%,var(--paper) 55%,var(--paper2) 100%);
+  box-shadow:0 1px 0 rgba(255,255,255,.4) inset,0 18px 40px -18px rgba(50,30,10,.55),0 2px 6px rgba(50,30,10,.25);
+  padding:26px 26px 30px;border-radius:2px;
+}
+.sheet:before{content:"";position:absolute;inset:9px;border:1px solid var(--rule);pointer-events:none}
+.sheet:after{content:"";position:absolute;inset:13px;border:.5px solid var(--rule);pointer-events:none;opacity:.7}
+
+/* masthead */
+.mast{text-align:center;position:relative;z-index:1}
+.mast .est{font-family:"IM Fell English",serif;font-style:italic;font-size:14px;color:var(--ink2);letter-spacing:.06em}
+.mast h1{font-family:"Playfair Display SC",serif;font-weight:900;font-size:58px;letter-spacing:.14em;margin:2px 0 0;line-height:1;color:var(--ink)}
+.mast .sub{font-family:"Playfair Display SC",serif;font-size:12.5px;letter-spacing:.32em;color:var(--oxblood);margin-top:6px}
+.dbl{height:5px;border-top:1.5px solid var(--ink);border-bottom:.6px solid var(--ink);margin:12px 0 8px}
+.dateline{display:flex;justify-content:space-between;font-family:"IM Fell English",serif;font-size:14.5px;color:var(--ink2)}
+.iconbtns{position:absolute;top:20px;right:20px;display:flex;gap:6px;z-index:2}
+.iconbtns.l{left:20px;right:auto}
+.ib{background:none;border:1px solid var(--rule);color:var(--ink2);width:30px;height:30px;border-radius:50%;font-family:"Playfair Display SC",serif;font-size:15px;cursor:pointer;line-height:1}
+.ib:hover{border-color:var(--ink);color:var(--ink)}
+
+/* generic */
+.orn{text-align:center;color:var(--gold);font-size:18px;letter-spacing:.6em;margin:14px 0 10px}
+.sc{font-family:"Playfair Display SC",serif;letter-spacing:.12em}
+.fell{font-family:"IM Fell English",serif}
+.c{text-align:center}
+.muted{color:var(--ink2)}
+button.btn{
+  font-family:"Playfair Display SC",serif;letter-spacing:.16em;font-size:16px;
+  background:var(--oxblood);color:#f6ecd6;border:none;padding:13px 22px;cursor:pointer;
+  box-shadow:0 0 0 1px var(--oxblood),0 0 0 3px var(--paper),0 0 0 4px var(--oxblood);
+  margin:4px;transition:transform .08s,filter .15s;
+}
+button.btn:hover{filter:brightness(1.1)}
+button.btn:active{transform:translateY(1px)}
+button.btn.ghost{background:transparent;color:var(--ink);box-shadow:0 0 0 1px var(--ink)}
+button.btn:disabled{opacity:.45;cursor:not-allowed}
+.row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+
+/* intro */
+.intro p{margin:.5em 0}
+.rules{list-style:none;padding:0;margin:14px 0}
+.rules li{display:flex;gap:12px;margin:9px 0;align-items:baseline}
+.rules .n{font-family:"Playfair Display SC",serif;color:var(--oxblood);font-size:22px;min-width:22px}
+
+/* lot */
+.lothead{display:flex;justify-content:space-between;align-items:baseline;margin-top:6px}
+.lotno{font-family:"Playfair Display SC",serif;font-size:24px;letter-spacing:.1em}
+.lotno b{color:var(--oxblood)}
+.purse{text-align:right;font-family:"IM Fell English",serif;font-size:14px;color:var(--ink2)}
+.purse b{display:block;font-family:"Playfair Display SC",serif;font-size:20px;color:var(--green);letter-spacing:.04em}
+.plate{
+  margin:10px auto 6px;width:100%;max-width:330px;aspect-ratio:5/4;
+  border:1px solid var(--ink);padding:7px;background:rgba(255,255,255,.18);position:relative
+}
+.plate .inner{width:100%;height:100%;border:.6px solid var(--ink2);display:flex;align-items:center;justify-content:center;color:var(--ink)}
+.plate svg{width:82%;height:82%}
+.plate .cap{position:absolute;bottom:-11px;left:50%;transform:translateX(-50%);background:var(--paper);padding:0 10px;font-family:"IM Fell English",serif;font-style:italic;font-size:13.5px;color:var(--ink2);white-space:nowrap}
+.lottitle{font-family:"Playfair Display SC",serif;font-weight:700;font-size:23px;line-height:1.15;text-align:center;margin:18px 0 4px}
+.prov{font-family:"IM Fell English",serif;font-style:italic;text-align:center;color:var(--ink2);font-size:15.5px}
+.desc{margin:10px 2px 4px;text-align:justify;hyphens:auto}
+.desc:first-letter{font-family:"Playfair Display SC",serif;font-size:2.3em;float:left;line-height:.85;padding:4px 6px 0 0;color:var(--oxblood)}
+
+/* bidding */
+.bidbox{margin-top:14px;border-top:1px solid var(--rule);padding-top:12px}
+.biddisplay{display:flex;align-items:center;justify-content:center;gap:4px;border-bottom:1.5px solid var(--ink);margin:4px auto 2px;max-width:340px}
+.biddisplay span{font-family:"Playfair Display SC",serif;font-size:32px}
+.biddisplay input{
+  font-family:"Playfair Display SC",serif;font-size:32px;border:none;background:transparent;color:var(--ink);
+  width:100%;text-align:center;outline:none;padding:4px 0;letter-spacing:.03em
+}
+.hint{text-align:center;font-size:14px;color:var(--faint);font-style:italic;min-height:20px}
+.hint.err{color:var(--oxblood)}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;background:transparent;margin:14px 0 6px}
+input[type=range]::-webkit-slider-runnable-track{height:2px;background:var(--ink)}
+input[type=range]::-moz-range-track{height:2px;background:var(--ink)}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:var(--oxblood);border:3px solid var(--paper);box-shadow:0 0 0 1px var(--oxblood);margin-top:-12px;cursor:grab}
+input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--oxblood);border:3px solid var(--paper);box-shadow:0 0 0 1px var(--oxblood);cursor:grab}
+.scale{display:flex;justify-content:space-between;font-family:"IM Fell English",serif;font-size:13px;color:var(--faint)}
+.nudges{display:flex;justify-content:center;gap:6px;margin:8px 0 10px;flex-wrap:wrap}
+.nudge{font-family:"Playfair Display SC",serif;font-size:13px;letter-spacing:.08em;background:none;border:1px solid var(--rule);color:var(--ink2);padding:5px 10px;cursor:pointer}
+.nudge:hover{border-color:var(--ink);color:var(--ink)}
+
+/* reveal */
+.callout{min-height:120px;display:flex;flex-direction:column;align-items:center;justify-content:center;margin-top:12px}
+.going{font-family:"IM Fell English",serif;font-style:italic;font-size:30px;color:var(--ink2);animation:fade .35s ease}
+.sold{font-family:"Playfair Display SC",serif;font-weight:900;font-size:44px;letter-spacing:.2em;color:var(--oxblood);animation:stamp .35s cubic-bezier(.2,1.8,.4,1)}
+.sold.lost{color:var(--ink2)}
+@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1}}
+@keyframes stamp{from{opacity:0;transform:scale(2.2) rotate(-8deg)}to{opacity:1;transform:scale(1) rotate(-3deg)}}
+.gavel{width:70px;height:70px;transform-origin:85% 85%}
+.gavel.hit{animation:hit .4s ease}
+@keyframes hit{0%{transform:rotate(-35deg)}55%{transform:rotate(8deg)}100%{transform:rotate(0)}}
+.ledgerline{display:grid;grid-template-columns:1fr auto;gap:2px 14px;max-width:330px;margin:10px auto 0;font-size:18px}
+.ledgerline .k{font-family:"IM Fell English",serif;color:var(--ink2)}
+.ledgerline .v{font-family:"Playfair Display SC",serif;text-align:right}
+.ledgerline .tot{border-top:1px solid var(--ink);padding-top:4px}
+.verdict{font-family:"IM Fell English",serif;font-style:italic;text-align:center;font-size:17px;margin:12px 6px 6px}
+.fact{border:1px dashed var(--rule);padding:10px 14px;margin:12px 0 4px;font-size:16.5px}
+.fact .sc{font-size:12px;color:var(--gold);display:block;margin-bottom:2px}
+
+/* results */
+.receipt{border:1px solid var(--ink);padding:14px 14px 10px;margin:12px 0;background:rgba(255,255,255,.15)}
+.receipt table{width:100%;border-collapse:collapse;font-size:16px}
+.receipt th{white-space:nowrap;font-family:"Playfair Display SC",serif;font-weight:400;font-size:12px;letter-spacing:.14em;color:var(--ink2);text-align:right;border-bottom:1px solid var(--ink);padding:4px 2px}
+.receipt th:first-child,.receipt td:first-child{text-align:left}
+.receipt td{padding:7px 2px;border-bottom:.5px dotted var(--rule);text-align:right;vertical-align:top}
+.receipt td small{display:block;color:var(--faint);font-style:italic;font-size:13px}
+.big{font-family:"Playfair Display SC",serif;font-size:62px;font-weight:900;line-height:1;color:var(--oxblood)}
+.grid{font-size:28px;letter-spacing:4px;margin:6px 0}
+.stats{display:flex;justify-content:space-around;margin:14px 0 6px;text-align:center}
+.stats b{display:block;font-family:"Playfair Display SC",serif;font-size:26px}
+.stats span{font-size:13px;color:var(--ink2);font-family:"IM Fell English",serif}
+.countdown{font-family:"IM Fell English",serif;font-style:italic;color:var(--ink2);text-align:center;margin-top:10px;font-size:15px}
+.rank{text-align:center;margin:4px 0 2px}
+.rank .line{font-family:"IM Fell English",serif;font-style:italic;font-size:19px}
+.rank .line b{font-family:"Playfair Display SC",serif;font-style:normal;color:var(--oxblood);font-size:22px}
+.dist{display:flex;align-items:flex-end;gap:3px;height:46px;max-width:300px;margin:8px auto 0;border-bottom:1px solid var(--ink)}
+.dist i{flex:1;background:var(--rule);min-height:1px}
+.dist i.me{background:var(--oxblood)}
+.distlab{display:flex;justify-content:space-between;max-width:300px;margin:2px auto 0;font-size:12px;color:var(--faint);font-family:"IM Fell English",serif}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:9px 18px;font-family:"Playfair Display SC",serif;letter-spacing:.1em;font-size:14px;opacity:0;transition:opacity .25s;pointer-events:none;z-index:50}
+.toast.on{opacity:1}
+
+/* modal */
+.modal{position:fixed;inset:0;background:rgba(40,25,10,.55);display:none;align-items:center;justify-content:center;z-index:40;padding:16px}
+.modal.on{display:flex}
+.modal .sheet{max-height:90vh;overflow:auto}
+.x{position:absolute;top:16px;right:18px;z-index:3}
+.foot a{color:var(--ink2)}
+.foot{text-align:center;font-family:"IM Fell English",serif;font-size:12.5px;color:var(--faint);margin-top:18px;font-style:italic}
+@media (max-width:420px){
+  .mast h1{font-size:44px}
+  .sheet{padding:22px 18px 26px}
+  .lottitle{font-size:20px}
+  .biddisplay span,.biddisplay input{font-size:27px}
+}
+</style>
+</head>
+<body>
+<div class="sheet" id="sheet">
+  <div class="iconbtns l"><button class="ib" id="helpBtn" title="How to play">?</button></div>
+  <div class="iconbtns"><button class="ib" id="statsBtn" title="Your record">§</button></div>
+  <header class="mast">
+    <div class="est">Auctioneers &amp; Valuers of Fine &amp; Curious Objects</div>
+    <h1>PADDLE</h1>
+    <div class="sub">THE DAILY SALE</div>
+  </header>
+  <div class="dbl"></div>
+  <div class="dateline"><span id="catNo"></span><span id="dateStr"></span></div>
+  <main id="app"></main>
+  <div class="foot">Prices realised include buyer's premium. Illustrations are the house's own engravings.<br><a href="about.html">About</a> · <a href="privacy.html">Privacy</a></div>
+</div>
+
+<div class="modal" id="modal"><div class="sheet" id="modalBody"></div></div>
+<div class="toast" id="toast"></div>
+
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <pattern id="hatch" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="5" stroke="#2b2018" stroke-width="1" opacity=".55"/>
+    </pattern>
+    <pattern id="hatch2" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+      <line x1="0" y1="0" x2="0" y2="4" stroke="#2b2018" stroke-width=".8" opacity=".4"/>
+    </pattern>
+  </defs>
+</svg>
+
+<script>
+/* ---------- engravings ---------- */
+const S = (inner)=>`<svg viewBox="0 0 200 160" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${inner}</svg>`;
+const ICONS = {
+  watch: S(`<path d="M80 18h40l4 32H76z" fill="url(#hatch2)"/><path d="M76 110h48l-4 32H80z" fill="url(#hatch2)"/>
+    <circle cx="100" cy="80" r="36" fill="#f2e8d3"/><circle cx="100" cy="80" r="30"/>
+    <rect x="136" y="75" width="7" height="10" rx="2"/>
+    ${[...Array(12)].map((_,i)=>{const a=i*Math.PI/6,r1=i%3?26:23;return `<line x1="${100+Math.sin(a)*r1}" y1="${80-Math.cos(a)*r1}" x2="${100+Math.sin(a)*28}" y2="${80-Math.cos(a)*28}"/>`}).join('')}
+    <circle cx="88" cy="84" r="6" stroke-width="1.2"/><circle cx="112" cy="84" r="6" stroke-width="1.2"/>
+    <line x1="100" y1="80" x2="100" y2="60"/><line x1="100" y1="80" x2="114" y2="72"/><circle cx="100" cy="80" r="2" fill="currentColor"/>`),
+  bag: S(`<path d="M68 62c0-34 64-34 64 0" stroke-width="5"/><path d="M68 62c0-26 64-26 64 0" stroke-width="1.2"/>
+    <path d="M40 62h120l12 80H28z" fill="url(#hatch2)"/><path d="M40 62h120l-6 34H46z" fill="#f2e8d3"/>
+    <path d="M46 96l-4-34" /><rect x="90" y="88" width="20" height="18" rx="3" fill="#f2e8d3"/><path d="M95 88v-6a5 5 0 0110 0v6"/>
+    <path d="M60 70h80" stroke-dasharray="3 4" stroke-width="1"/>`),
+  dino: S(`<path d="M18 92c8-30 34-50 70-52 22-2 34 4 48 14 14 9 30 10 44 18 6 4 4 14-4 16l-50 8c-10 2-20 14-34 16-20 3-40-2-54-10z" fill="url(#hatch2)"/>
+    <circle cx="128" cy="66" r="8" fill="#f2e8d3"/><circle cx="128" cy="66" r="3" fill="currentColor"/>
+    <path d="M86 58c8-6 18-6 24 4-6 10-18 10-24-4z" fill="#f2e8d3"/>
+    <path d="M60 104c20 6 50 6 74-4" />
+    ${[...Array(9)].map((_,i)=>`<path d="M${70+i*8} ${103-i*.4}l3 9 3-9"/>`).join('')}
+    <path d="M30 120h140" stroke-width="1"/><path d="M60 120v18M140 120v18M50 138h100"/>`),
+  car: S(`<path d="M14 108c2-10 8-14 20-16l22-4c10-14 24-22 46-22 20 0 30 8 40 20l26 4c10 2 16 8 18 18z" fill="url(#hatch2)"/>
+    <path d="M62 88c8-10 20-16 38-16 16 0 24 6 32 16z" fill="#f2e8d3"/><line x1="98" y1="72" x2="98" y2="88"/>
+    <circle cx="52" cy="112" r="16" fill="#f2e8d3"/><circle cx="52" cy="112" r="7"/>
+    <circle cx="150" cy="112" r="16" fill="#f2e8d3"/><circle cx="150" cy="112" r="7"/>
+    <path d="M10 130h180" stroke-width="1"/><path d="M172 100h12" />`),
+  jersey: S(`<path d="M66 18c8 12 60 12 68 0l26 10-4 40-16-4v80H60V64l-16 4-4-40z" fill="#f2e8d3"/>
+    <path d="M66 18c8 12 60 12 68 0" stroke-width="4"/><path d="M140 64l16 4M60 64l-16 4"/>
+    <path d="M100 66l7 14 15 2-11 10 3 15-14-7-14 7 3-15-11-10 15-2z" fill="url(#hatch)"/>
+    <path d="M60 128h80" stroke-dasharray="2 4" stroke-width="1"/>`),
+  card: S(`<g transform="rotate(-6 100 80)"><rect x="56" y="14" width="88" height="128" rx="4" fill="#f2e8d3"/><rect x="64" y="22" width="72" height="88" fill="url(#hatch2)"/>
+    <circle cx="100" cy="60" r="16" fill="#f2e8d3"/><path d="M90 52c6 4 6 12 0 16M110 52c-6 4-6 12 0 16" stroke-width="1.2"/>
+    <rect x="64" y="116" width="72" height="18" fill="#f2e8d3"/><line x1="72" y1="125" x2="128" y2="125" stroke-width="1"/></g>`),
+  comic: S(`<rect x="50" y="12" width="100" height="136" fill="#f2e8d3"/><rect x="50" y="12" width="100" height="30" fill="url(#hatch)"/>
+    <path d="M100 56l8 18 20-6-12 16 16 12-20 2 2 20-14-14-14 14 2-20-20-2 16-12-12-16 20 6z" fill="url(#hatch2)"/>
+    <line x1="60" y1="138" x2="140" y2="138" stroke-width="1"/>`),
+  guitar: S(`<path d="M142 20l18-6 6 18-6 4-20 32-8-6 14-30z" fill="url(#hatch)"/><line x1="134" y1="62" x2="112" y2="92" stroke-width="7"/>
+    <path d="M110 88c-4-14-26-18-40-6-10 8-10 20-4 26-14 2-28 14-24 30 4 14 22 16 36 8 12-6 18-14 18-24 10-2 18-12 14-34z" fill="#f2e8d3"/>
+    <circle cx="80" cy="112" r="9" fill="url(#hatch2)"/><path d="M58 138l10-10"/>`),
+  shoe: S(`<path d="M20 108c20 0 40-4 56-18 10-8 16-20 30-20 18 0 30 16 50 20l24 4c6 2 6 14 0 16H40c-14 0-22-0-20-2z" fill="url(#hatch2)"/>
+    <path d="M156 92l4 44h-10l-6-40" fill="#f2e8d3"/><path d="M90 78c-10-8-22-6-22 0s14 6 22 0c8 6 22 6 22 0s-12-8-22 0z" fill="#f2e8d3"/>
+    <circle cx="90" cy="79" r="3" fill="currentColor"/><path d="M14 136h172" stroke-width="1"/>`),
+  dress: S(`<path d="M86 14l-6 22c-6 16 2 30 4 40-10 20-36 46-40 72h112c-4-26-30-52-40-72 2-10 10-24 4-40l-6-22" fill="#f2e8d3"/>
+    <path d="M84 76h32" /><path d="M86 14c4 6 24 6 28 0"/>
+    ${[...Array(18)].map((_,i)=>`<circle cx="${60+((i*37)%80)}" cy="${90+((i*23)%52)}" r="1.3" fill="currentColor"/>`).join('')}
+    ${[...Array(8)].map((_,i)=>`<circle cx="${88+((i*11)%26)}" cy="${30+((i*13)%40)}" r="1.1" fill="currentColor"/>`).join('')}`),
+  wine: S(`<path d="M88 12h24v34c0 10 18 18 18 40v56c0 4-4 6-8 6H78c-4 0-8-2-8-6V86c0-22 18-30 18-40z" fill="url(#hatch2)"/>
+    <rect x="86" y="10" width="28" height="14" fill="#f2e8d3"/><rect x="74" y="88" width="52" height="38" fill="#f2e8d3"/>
+    <path d="M84 100h32M88 108h24M92 116h16" stroke-width="1"/>`),
+  whisky: S(`<path d="M60 42h50v100H60z" fill="url(#hatch2)"/><path d="M76 14h18v28H76z" fill="#f2e8d3"/><rect x="66" y="66" width="38" height="46" fill="#f2e8d3"/>
+    <path d="M72 80h26M74 90h22M76 100h18" stroke-width="1"/>
+    <path d="M124 92h44l-4 50h-36z" fill="#f2e8d3"/><path d="M127 112h38l-2 30h-34z" fill="url(#hatch)"/>`),
+  document: S(`<path d="M44 22h104c-8 0-12 8-12 14v102H40c8 0 12-6 12-14V36c0-8-4-14-8-14z" fill="#f2e8d3"/>
+    <path d="M148 22c8 0 12 6 12 14h-24"/><path d="M40 138c-8 0-12-6-12-14h24"/>
+    <text x="94" y="56" text-anchor="middle" font-family="IM Fell English" font-style="italic" font-size="22" fill="currentColor" stroke="none">We the People</text>
+    ${[...Array(7)].map((_,i)=>`<path d="M64 ${70+i*9}h${54+((i*17)%18)}" stroke-width="1"/>`).join('')}
+    <circle cx="116" cy="128" r="9" fill="url(#hatch)"/>`),
+  violin: S(`<path d="M100 22v18" stroke-width="6"/><circle cx="100" cy="16" r="6" fill="url(#hatch)"/>
+    <path d="M100 40c-22 0-30 10-28 24 1 8 8 10 8 16s-12 10-12 28c0 18 14 30 32 30s32-12 32-30c0-18-12-22-12-28s7-8 8-16c2-14-6-24-28-24z" fill="url(#hatch2)"/>
+    <path d="M100 44v76" stroke-width="3"/><path d="M84 88c-4 6 4 12 0 20M116 88c4 6-4 12 0 20" stroke-width="1.4"/>
+    <rect x="90" y="112" width="20" height="5" fill="#f2e8d3"/>`),
+  frame: S(`<rect x="22" y="14" width="156" height="132" fill="url(#hatch)"/><rect x="34" y="26" width="132" height="108" fill="#f2e8d3"/>
+    <rect x="40" y="32" width="120" height="96"/>
+    <path d="M40 32c20 10 30 40 26 96M160 32c-20 10-30 40-26 96M66 128c10-30 58-30 68 0" stroke-width="1.2"/>
+    <path d="M70 40c10 4 50 4 60 0" stroke-width="1.2"/>
+    ${[22,178].map(x=>[14,146].map(y=>`<circle cx="${x}" cy="${y}" r="5" fill="#f2e8d3"/>`).join('')).join('')}`),
+  sneaker: S(`<path d="M24 118V70c0-8 6-12 14-12h30l8-22h24l6 30c10 10 30 18 58 22 14 2 16 18 16 30z" fill="#f2e8d3"/>
+    <path d="M24 104h156v14H24z" fill="url(#hatch)"/><path d="M68 58c4 18 14 28 30 28" stroke-width="1.4"/>
+    ${[0,1,2,3].map(i=>`<path d="M${82+i*7} ${44+i*8}l14 -4"/>`).join('')}`),
+  cow: S(`<path d="M40 66c0-10 8-16 20-16h62c6 0 10-6 16-12 6-4 12-2 14 4l2 8c4 2 6 6 6 10l14 14c4 4 2 10-4 10h-10c-4 0-8-2-10-4l-4 14c-2 8-6 12-12 14v40h-9l-3-34H74l-4 34h-9l-2-36c-12-4-19-14-19-26z" fill="#f2e8d3"/>
+    <path d="M122 50c4-12 14-18 22-14" fill="url(#hatch2)"/>
+    <path d="M154 46l6-12 2 12M150 48l-8-8" stroke-width="2.4"/><path d="M162 58l10-4-4 8" />
+    <circle cx="166" cy="70" r="2.2" fill="currentColor"/><path d="M178 86c-4 1-6 0-8-2" stroke-width="1.2"/>
+    <path d="M150 96c-4 10-12 16-20 16" fill="url(#hatch2)" stroke-width="1.2"/>
+    <path d="M40 66c-8 6-10 22-8 44l-4 10M28 120l-4 8 6-2 2 6 2-10" stroke-width="1.6"/>
+    <path d="M70 72c18-4 40-4 56 2" stroke-width="1" stroke-dasharray="2 3"/>
+    <path d="M14 144h172" stroke-width="1"/>`),
+  sheep: S(`${[[70,62],[92,54],[114,58],[134,66],[60,82],[84,78],[108,80],[132,84],[74,100],[100,102],[124,100]].map(([x,y])=>`<circle cx="${x}" cy="${y}" r="14" fill="#f2e8d3"/>`).join('')}
+    <path d="M140 64c10-6 26-2 28 10 2 10-6 18-16 18-8 0-14-6-14-14" fill="url(#hatch2)"/><path d="M146 66c-6-6-14-4-14 2" />
+    <circle cx="158" cy="76" r="2" fill="currentColor"/>
+    <path d="M78 112v26M96 114v24M118 114v24M134 110v28" stroke-width="3"/><path d="M20 140h160" stroke-width="1"/>`),
+  fish: S(`<path d="M22 80c20-30 70-44 112-30 14 4 24 12 30 20l22-22-6 32 6 32-22-22c-6 8-16 16-30 20-42 14-92 0-112-30z" fill="url(#hatch2)"/>
+    <path d="M22 80c20 14 70 26 112 16" fill="#f2e8d3"/><circle cx="46" cy="74" r="5" fill="#f2e8d3"/><circle cx="46" cy="74" r="2" fill="currentColor"/>
+    <path d="M60 64c6 8 6 24 0 32" /><path d="M96 52l10-14 14 12M100 108l8 12 10-10" />
+    ${[...Array(6)].map((_,i)=>`<path d="M${72+i*12} 72l6 4-6 4" stroke-width="1"/>`).join('')}`),
+  bird: S(`<path d="M50 96c-4-28 18-50 46-48 20 2 34 14 38 32l30 4-26 10c-8 22-34 34-60 28-14-4-24-12-28-26z" fill="#f2e8d3"/>
+    <path d="M70 92c20-14 50-16 70-6-12 18-40 26-62 20" fill="url(#hatch2)"/><path d="M40 98l-24 10 26 4" fill="url(#hatch)"/>
+    <circle cx="118" cy="62" r="5" fill="#f2e8d3"/><circle cx="118" cy="62" r="2" fill="currentColor"/>
+    <path d="M86 132l-4 12M100 134l2 12M74 146h16M94 146h16" /><path d="M20 146h160" stroke-width="1"/>`),
+  coin: S(`<circle cx="100" cy="80" r="58" fill="url(#hatch2)"/><circle cx="100" cy="80" r="50" fill="#f2e8d3"/><circle cx="100" cy="80" r="44" stroke-dasharray="2 3" stroke-width="1"/>
+    <path d="M100 48l4 12 13 0-10 8 4 12-11-7-11 7 4-12-10-8 13 0z" fill="url(#hatch)"/>
+    <path d="M72 96c18 12 38 12 56 0" /><path d="M80 104l-6 8M120 104l6 8" stroke-width="1.2"/>
+    <text x="100" y="124" text-anchor="middle" font-family="IM Fell English" font-size="10" fill="currentColor" stroke="none">LIBERTY</text>`),
+  gem: S(`<path d="M60 52h80l24 26-64 66-64-66z" fill="#f2e8d3"/><path d="M36 78h128M60 52l20 26 20-26 20 26 20-26M80 78l20 66 20-66" stroke-width="1.4"/>
+    <path d="M60 52l-24 26 64 66" fill="url(#hatch2)" stroke="none"/>
+    <path d="M150 30l4 10 10 4-10 4-4 10-4-10-10-4 10-4z" fill="currentColor" stroke="none"/><path d="M40 26l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="currentColor" stroke="none"/>`),
+  book: S(`<path d="M100 40c-20-12-48-14-70-8v100c22-6 50-4 70 8 20-12 48-14 70-8V32c-22-6-50-4-70 8z" fill="#f2e8d3"/>
+    <path d="M100 40v100" /><path d="M30 132c22-6 50-4 70 8 20-12 48-14 70-8" stroke-width="1"/>
+    ${[...Array(7)].map((_,i)=>`<path d="M42 ${54+i*10}c14-3 32-2 46 4M112 ${58+i*10}c14-6 32-7 46-4" stroke-width="1"/>`).join('')}
+    <rect x="44" y="48" width="18" height="18" fill="url(#hatch)" stroke-width="1"/>`),
+  toilet: S(`<rect x="62" y="14" width="76" height="38" rx="4" fill="url(#hatch2)"/><rect x="92" y="20" width="16" height="6" rx="2" fill="#f2e8d3"/>
+    <path d="M48 60h104c0 22-14 38-30 42l4 30H74l4-30c-16-4-30-20-30-42z" fill="#f2e8d3"/><ellipse cx="100" cy="60" rx="52" ry="8" fill="url(#hatch)"/>
+    <path d="M70 132h60" stroke-width="3"/><path d="M150 30l4 8 8 4-8 4-4 8-4-8-8-4 8-4z" fill="currentColor" stroke="none"/>`),
+  screen: S(`<rect x="30" y="20" width="140" height="96" rx="4" fill="#f2e8d3"/><rect x="38" y="28" width="124" height="80" fill="url(#hatch2)"/>
+    ${[...Array(5)].map((_,r)=>[...Array(7)].map((_,c)=>`<rect x="${42+c*17}" y="${32+r*15}" width="13" height="11" fill="${(r*7+c)%3?'#f2e8d3':'url(#hatch)'}" stroke-width=".8"/>`).join('')).join('')}
+    <path d="M86 116l-6 22h40l-6-22M70 140h60" />`),
+  drum: S(`<ellipse cx="100" cy="80" rx="60" ry="60" fill="#f2e8d3"/><ellipse cx="100" cy="80" rx="52" ry="52" stroke-width="1"/>
+    ${[...Array(10)].map((_,i)=>{const a=i*Math.PI/5;return `<circle cx="${100+Math.cos(a)*56}" cy="${80+Math.sin(a)*56}" r="3" fill="currentColor"/>`}).join('')}
+    <text x="100" y="90" text-anchor="middle" font-family="Playfair Display SC" font-weight="700" font-size="15" fill="currentColor" stroke="none">THE BAND</text>
+    <path d="M40 150l40-30M160 150l-40-30" stroke-width="3"/>`),
+  hat: S(`<path d="M104 14c-6 30-22 66-40 92h76c-14-28-24-60-36-92z" fill="url(#hatch)"/><path d="M104 14c8 2 14 8 16 16" />
+    <ellipse cx="100" cy="112" rx="78" ry="16" fill="#f2e8d3"/><ellipse cx="100" cy="108" rx="40" ry="6" fill="url(#hatch2)"/>
+    <path d="M66 100h70" stroke-width="4"/>`),
+  ball: S(`<circle cx="100" cy="76" r="50" fill="#f2e8d3"/>
+    <path d="M66 40c14 20 14 52 0 72M134 40c-14 20-14 52 0 72" stroke-width="1.4"/>
+    ${[...Array(8)].map((_,i)=>`<path d="M${68+(i<4?6:0)+i%4*0} ${46+i%4*20-(i>=4?2:0)}" />`).join('')}
+    ${[...Array(6)].map((_,i)=>`<path d="M${70} ${50+i*10}l6 -2M${130} ${50+i*10}l-6 -2" stroke-width="1"/>`).join('')}
+    <path d="M60 140h80" stroke-width="1"/><path d="M78 128l-8 12M122 128l8 12" />`),
+};
+
+/* ---------- the catalogue (loaded from lots.json) ---------- */
+let LOTS=[];
+const SITE_URL=""; // set to your domain, e.g. "https://playpaddle.com", once you have one
+const CAT={frame:'art',screen:'art',toilet:'art',watch:'watch',car:'car',document:'paper',book:'paper',comic:'paper',coin:'coin',guitar:'music',drum:'music',violin:'music',gem:'jewel',dino:'dino',bag:'fashion',dress:'fashion',shoe:'fashion',hat:'fashion',sneaker:'fashion',cow:'animal',sheep:'animal',fish:'animal',bird:'animal',jersey:'sport',card:'sport',ball:'sport',whisky:'drink',wine:'drink'};
+
+/* ---------- helpers ---------- */
+const $ = s=>document.querySelector(s);
+const LAUNCH = new Date(2026,10,17); // 17 Nov 2026 = No. 1
+function dayNo(d=new Date()){const m=new Date(d.getFullYear(),d.getMonth(),d.getDate());return Math.round((m-LAUNCH)/864e5)+1}
+function rng(seed){return function(){seed|=0;seed=seed+0x6D2B79F5|0;let t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+function dailyLots(n){const out=[];for(let i=0;i<5;i++)out.push(((n-1)*5+i)%LOTS.length);return out}
+function practiceLots(){
+  const r=rng(Math.floor(Math.random()*1e9)), idx=LOTS.map((_,i)=>i);
+  for(let i=idx.length-1;i>0;i--){const j=Math.floor(r()*(i+1));[idx[i],idx[j]]=[idx[j],idx[i]]}
+  const out=[],used=new Set();
+  for(const i of idx){if(out.length===5)break;const c=CAT[LOTS[i].icon];if(!used.has(c)){out.push(i);used.add(c)}}
+  return out;
+}
+function niceUp(x){const m=Math.pow(10,Math.floor(Math.log10(x))-1);return Math.ceil(x/m)*m}
+function money(n){return "$"+Math.round(n).toLocaleString("en-US")}
+function short(n){
+  if(n>=1e9)return "$"+(+(n/1e9).toFixed(2))+"B";
+  if(n>=1e6)return "$"+(+(n/1e6).toFixed(n>=1e8?0:n>=1e7?1:2))+"M";
+  if(n>=1e3)return "$"+(+(n/1e3).toFixed(0))+"K";
+  return "$"+Math.round(n);
+}
+function parseBid(s){
+  s=String(s).toLowerCase().replace(/[$,\s]/g,"");
+  const m=s.match(/^(\d*\.?\d+)(k|m|b|mm|bn)?$/); if(!m)return NaN;
+  const mult={k:1e3,m:1e6,mm:1e6,b:1e9,bn:1e9}[m[2]]||1; return parseFloat(m[1])*mult;
+}
+function round3(x){if(x<1000)return Math.round(x);const m=Math.pow(10,Math.floor(Math.log10(x))-2);return Math.round(x/m)*m}
+function pts(bid,price){return bid>=price?Math.max(1,Math.round(100*price/bid)):0}
+function sq(p){return p>=90?"🟩":p>=70?"🟨":p>0?"🟧":"⬛"}
+function toast(t){const e=$("#toast");e.textContent=t;e.classList.add("on");clearTimeout(e._t);e._t=setTimeout(()=>e.classList.remove("on"),1800)}
+let actx; function knock(){try{actx=actx||new (window.AudioContext||window.webkitAudioContext)();const t=actx.currentTime;
+  [0,.0].forEach(()=>{const o=actx.createOscillator(),g=actx.createGain();o.type="triangle";o.frequency.setValueAtTime(180,t);o.frequency.exponentialRampToValueAtTime(60,t+.12);
+  g.gain.setValueAtTime(.5,t);g.gain.exponentialRampToValueAtTime(.001,t+.18);o.connect(g).connect(actx.destination);o.start(t);o.stop(t+.2)});
+  const b=actx.createBuffer(1,actx.sampleRate*.05,actx.sampleRate),d=b.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/d.length,3);
+  const n=actx.createBufferSource(),g2=actx.createGain();g2.gain.value=.35;n.buffer=b;n.connect(g2).connect(actx.destination);n.start(t)}catch(e){}}
+const store={get(){try{return JSON.parse(localStorage.getItem("paddle-v2"))||{days:{}}}catch(e){return{days:{}}}},
+  set(v){try{localStorage.setItem("paddle-v2",JSON.stringify(v))}catch(e){}}};
+
+/* ---------- state ---------- */
+const TODAY=dayNo();
+let G=null; // {mode,no,lots,i,budget,left,results:[]}
+function newGame(mode){
+  const lots=mode==="daily"?dailyLots(TODAY):practiceLots(), sum=lots.reduce((a,i)=>a+LOTS[i].p,0);
+  const budget=niceUp(sum*1.25);
+  G={mode,no:TODAY,lots,i:0,budget,left:budget,results:[]};
+  renderLot();
+}
+
+/* ---------- views ---------- */
+function header(){
+  $("#catNo").textContent="Catalogue No. "+TODAY;
+  $("#dateStr").textContent=new Date().toLocaleDateString("en-GB",{weekday:"long",day:"numeric",month:"long",year:"numeric"});
+}
+function renderIntro(){
+  const done=store.get().days[TODAY];
+  $("#app").innerHTML=`
+   <div class="orn">❦</div>
+   <div class="intro">
+    <p class="c fell" style="font-size:21px;font-style:italic">Five real auction lots. One purse. How close can you bid?</p>
+    <ul class="rules">
+      <li><span class="n">I</span><span>Bid <b>at or above</b> the real price and it's yours.</span></li>
+      <li><span class="n">II</span><span>The closer your bid, the more points you get (max 100).</span></li>
+      <li><span class="n">III</span><span>Overpay early and you'll run out of money.</span></li>
+    </ul>
+   </div>
+   <div class="row" style="margin-top:14px">
+     ${done?`<button class="btn" id="seeRes">Today's Results</button><button class="btn ghost" id="practice">Practice Sale</button>`
+           :`<button class="btn" id="enter">Enter the Saleroom</button>`}
+   </div>
+   ${done?`<div class="countdown" id="cd"></div>`:""}`;
+  if(done){$("#seeRes").onclick=()=>renderResults(done,true);$("#practice").onclick=()=>newGame("practice");tick()}
+  else $("#enter").onclick=()=>newGame("daily");
+}
+function lotTop(L){
+  return `
+   <div class="lothead">
+     <div class="lotno">Lot <b>${G.i+1}</b> <span class="muted" style="font-size:16px">of 5</span></div>
+     <div class="purse">${G.mode==="practice"?"Practice purse":"Your purse"}<b id="purse">${money(G.left)}</b></div>
+   </div>
+   <div class="plate"><div class="inner">${ICONS[L.icon]}</div><div class="cap">Plate ${["I","II","III","IV","V"][G.i]}</div></div>
+   <div class="lottitle">${L.t}</div>
+   <div class="prov">${L.house} · ${L.date}</div>`;
+}
+function renderLot(){
+  const L=LOTS[G.lots[G.i]];
+  const lo=10000, hi=Math.max(G.left,lo*10);
+  const toV=s=>round3(lo*Math.pow(hi/lo,s/1000)), toS=v=>1000*Math.log(v/lo)/Math.log(hi/lo);
+  let bid=round3(Math.min(G.left, Math.sqrt(lo*hi)));
+  $("#app").innerHTML=lotTop(L)+`
+   <p class="desc">${L.d}</p>
+   <div class="bidbox">
+     <div class="c sc" style="font-size:12px;color:var(--ink2)">YOUR BID</div>
+     <div class="biddisplay"><span>$</span><input id="bidIn" inputmode="decimal" autocomplete="off" aria-label="Bid amount"></div>
+     <div class="hint" id="hint">Type an amount, e.g. 2.5m or 450k, or use the slider</div>
+     <input type="range" id="sl" min="0" max="1000" step="1" aria-label="Bid slider">
+     <div class="scale"><span>${short(lo)}</span><span>${short(hi)}</span></div>
+     <div class="nudges">
+       <button class="nudge" data-f="0.5">½</button><button class="nudge" data-f="0.9">−10%</button>
+       <button class="nudge" data-f="1.1">+10%</button><button class="nudge" data-f="2">×2</button>
+       <button class="nudge" data-f="all">All in</button>
+     </div>
+     <div class="row"><button class="btn" id="raise">Raise Paddle</button><button class="btn ghost" id="pass">Pass</button></div>
+   </div>`;
+  const inp=$("#bidIn"), sl=$("#sl"), hint=$("#hint"), raise=$("#raise");
+  function set(v,from){
+    bid=v; const ok=isFinite(v)&&v>=1000&&v<=G.left;
+    if(from!=="in") inp.value=isFinite(v)?Math.round(v).toLocaleString("en-US"):"";
+    if(from!=="sl"&&isFinite(v)&&v>0) sl.value=Math.max(0,Math.min(1000,toS(v)));
+    raise.disabled=!ok;
+    hint.classList.toggle("err",!ok&&inp.value!=="");
+    hint.textContent = !isFinite(v)?"Type an amount, e.g. 2.5m or 450k":
+      v>G.left?"That's more than your purse, "+money(G.left):
+      v<1000?"The house's minimum bid is $1,000": "About "+short(v);
+  }
+  set(bid);
+  sl.oninput=()=>set(Math.min(G.left,toV(+sl.value)),"sl");
+  inp.oninput=()=>set(parseBid(inp.value),"in");
+  inp.onblur=()=>{if(isFinite(bid))inp.value=Math.round(bid).toLocaleString("en-US")};
+  inp.onkeydown=e=>{if(e.key==="Enter"&&!raise.disabled)raise.click()};
+  document.querySelectorAll(".nudge").forEach(b=>b.onclick=()=>{
+    const f=b.dataset.f; let v=f==="all"?G.left:round3((isFinite(bid)?bid:lo)*+f); set(Math.max(1000,Math.min(G.left,v)));
+  });
+  raise.onclick=()=>reveal(bid);
+  $("#pass").onclick=()=>reveal(0);
+}
+function reveal(bid){
+  const L=LOTS[G.lots[G.i]], won=bid>=L.p&&bid>0, p=pts(bid,L.p);
+  if(won)G.left-=bid;
+  G.results.push({lot:G.lots[G.i],bid,won,p});
+  $("#app").innerHTML=lotTop(L)+`<div class="callout" id="call"></div>`;
+  $("#purse").textContent=money(won?G.left+bid:G.left);
+  const call=$("#call");
+  call.innerHTML=`<div class="going">Going once…</div>`;
+  setTimeout(()=>call.innerHTML=`<div class="going">Going twice…</div>`,750);
+  setTimeout(()=>{
+    knock();
+    $("#purse").textContent=money(G.left);
+    const over=bid-L.p;
+    const verdict = bid===0?"You keep your paddle down. The lot goes to a telephone bidder.":
+      !won?`Outbid. The room went to ${short(L.p)}, and your money stays in your purse.`:
+      p>=97?"A masterstroke. You barely paid a penny more than the room would have.":
+      p>=90?"Beautifully judged. The auctioneer nods his approval.":
+      p>=70?"Yours, though you left a little on the table.":
+      p>=40?"Yours, though the room is whispering about how much you paid.":
+      "Yours. You paid far more than anyone else in the room would have.";
+    call.innerHTML=`
+      <svg class="gavel hit" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3" style="color:var(--ink)">
+        <rect x="18" y="14" width="44" height="22" rx="4" transform="rotate(-35 40 25)" fill="url(#hatch)"/><line x1="46" y1="34" x2="84" y2="84" stroke-width="6"/>
+        <rect x="8" y="86" width="44" height="8" rx="2" fill="url(#hatch2)"/></svg>
+      <div class="sold ${won?"":"lost"}">${won?"SOLD":bid===0?"PASSED":"OUTBID"}</div>
+      <div class="ledgerline">
+        <span class="k">Price realised</span><span class="v">${money(L.p)}</span>
+        <span class="k">Your bid</span><span class="v">${bid?money(bid):"—"}</span>
+        ${won?`<span class="k">Overpaid by</span><span class="v">${money(over)}</span>`:""}
+        <span class="k tot">Points</span><span class="v tot" style="color:var(--oxblood)">${p} ${sq(p)}</span>
+      </div>
+      <div class="verdict">${verdict}</div>
+      ${L.f?`<div class="fact"><span class="sc">FROM THE CATALOGUE NOTE</span>${L.f}</div>`:""}
+      <div class="row" style="margin-top:10px"><button class="btn" id="next">${G.i<4?"Next Lot":"Settle the Account"}</button></div>`;
+    $("#next").onclick=()=>{G.i++; if(G.i<5)renderLot(); else finish()};
+  },1500);
+}
+function finish(){
+  const score=G.results.reduce((a,r)=>a+r.p,0);
+  const rec={no:G.no,results:G.results,score,left:G.left,budget:G.budget,mode:G.mode};
+  if(G.mode==="daily"){const s=store.get();s.days[G.no]=rec;store.set(s)}
+  renderResults(rec,false);
+}
+function shareText(rec){
+  return `PADDLE · The Daily Sale No. ${rec.no}${rec.mode==="practice"?" (practice)":""}\n${rec.results.map(r=>sq(r.p)).join("")}  ${rec.score}/500\n🔨 ${rec.results.filter(r=>r.won).length}/5 lots won · ${short(rec.left)} left in the purse${rec.pct!=null?`\n📜 Better than ${rec.pct}% of bidders`:""}\n${SITE_URL||(location.origin+location.pathname).replace(/index\.html$/,"")}`;
+}
+function renderResults(rec,returning){
+  const won=rec.results.filter(r=>r.won).length;
+  const title=rec.score>=450?"Master of the Saleroom":rec.score>=350?"Seasoned Collector":rec.score>=250?"Discerning Bidder":rec.score>=150?"Promising Amateur":"Enthusiastic Tourist";
+  $("#app").innerHTML=`
+   <div class="orn">❦</div>
+   <div class="c sc" style="font-size:13px;color:var(--ink2)">${rec.mode==="practice"?"PRACTICE SALE — ":""}STATEMENT OF ACCOUNT</div>
+   <div class="c big" style="margin-top:6px">${rec.score}</div>
+   <div class="c fell" style="font-style:italic;font-size:18px">of 500 · <b>${title}</b></div>
+   <div class="c grid">${rec.results.map(r=>sq(r.p)).join("")}</div>
+   ${rec.mode==="daily"?`<div class="rank" id="rank"><div class="line muted">Comparing notes with the other bidders…</div></div>`:""}
+   <div class="receipt"><table>
+     <tr><th>Lot</th><th>Your bid</th><th>Realised</th><th>Pts</th></tr>
+     ${rec.results.map((r,i)=>{const L=LOTS[r.lot];return `<tr><td>${i+1}. ${L.t.length>34?L.t.slice(0,32)+"…":L.t}<small>${L.house.split(",")[0]}, ${L.date.split(" ").pop()}</small></td>
+       <td>${r.bid?short(r.bid):"—"}</td><td>${short(L.p)}</td><td><b>${r.p}</b></td></tr>`}).join("")}
+   </table>
+   <div class="ledgerline" style="max-width:none;margin-top:10px;font-size:16px">
+     <span class="k">Lots won</span><span class="v">${won} of 5</span>
+     <span class="k">Opening purse</span><span class="v">${money(rec.budget)}</span>
+     <span class="k">Left in the purse</span><span class="v" style="color:var(--green)">${money(rec.left)}</span>
+   </div></div>
+   <div class="row"><button class="btn" id="share">Share Result</button>${rec.mode==="daily"?`<button class="btn ghost" id="practice">Practice Sale</button>`:`<button class="btn ghost" id="again">Another Practice</button>`}</div>
+   ${rec.mode==="daily"?`<div class="countdown" id="cd"></div>`:`<div class="countdown"><a href="#" id="home" style="color:var(--oxblood)">Back to today's catalogue</a></div>`}`;
+  $("#share").onclick=async()=>{const t=shareText(rec);try{await navigator.clipboard.writeText(t);toast("Copied to clipboard")}catch(e){showShare(t)}};
+  if($("#practice"))$("#practice").onclick=()=>newGame("practice");
+  if($("#again"))$("#again").onclick=()=>newGame("practice");
+  if($("#home"))$("#home").onclick=e=>{e.preventDefault();renderIntro()};
+  tick(); loadRank(rec);
+}
+/* ---------- how everyone else did today (needs the /api/scores function) ---------- */
+async function loadRank(rec){
+  const el=$("#rank"); if(!el)return;
+  try{
+    if(!rec.sent){
+      const r=await fetch("/api/scores",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({day:rec.no,score:rec.score})});
+      if(!r.ok)throw 0;
+      rec.sent=true; const st=store.get(); if(st.days[rec.no]){st.days[rec.no].sent=true;store.set(st)}
+    }
+    const r=await fetch("/api/scores?day="+rec.no); if(!r.ok)throw 0;
+    const d=await r.json(), total=Math.max(d.total,1);
+    let below=0, bins=Array(10).fill(0);
+    for(const [k,n] of Object.entries(d.hist)){const sc=+k; if(sc<rec.score)below+=n; bins[Math.min(9,Math.floor(sc/50))]+=n}
+    const my=Math.min(9,Math.floor(rec.score/50)), mx=Math.max(...bins,1);
+    const chart=`<div class="dist">${bins.map((n,i)=>`<i class="${i===my?"me":""}" style="height:${Math.round(100*n/mx)}%" title="${i*50}–${i*50+49}: ${n}"></i>`).join("")}</div><div class="distlab"><span>0</span><span>Today's bidders</span><span>500</span></div>`;
+    if(d.total<5){ el.innerHTML=`<div class="line">You're one of the first <b>${d.total}</b> bidders in today's sale.</div>`; return }
+    rec.pct=Math.round(100*below/total);
+    el.innerHTML=`<div class="line">Better than <b>${rec.pct}%</b> of ${d.total.toLocaleString("en-US")} bidders today</div>`+chart;
+  }catch(e){ el.remove() }   // offline or no server: just leave the line out
+}
+function showShare(t){openModal(`<button class="ib x" onclick="closeModal()">×</button><div class="c sc" style="margin-bottom:8px">Copy your result</div>
+  <textarea style="width:100%;height:110px;font-family:inherit;font-size:16px;background:transparent;border:1px solid var(--rule);padding:8px" readonly>${t}</textarea>`);
+  setTimeout(()=>{const a=document.querySelector("#modalBody textarea");a.focus();a.select()},50)}
+function tick(){const el=$("#cd");if(!el)return;const n=new Date(),m=new Date(n.getFullYear(),n.getMonth(),n.getDate()+1),s=Math.floor((m-n)/1000);
+  el.textContent=`The next catalogue opens in ${String(Math.floor(s/3600)).padStart(2,"0")}:${String(Math.floor(s%3600/60)).padStart(2,"0")}:${String(s%60).padStart(2,"0")}`;
+  clearTimeout(tick._t);tick._t=setTimeout(tick,1000)}
+function openModal(h){$("#modalBody").innerHTML=h;$("#modal").classList.add("on")}
+function closeModal(){$("#modal").classList.remove("on")}
+$("#modal").onclick=e=>{if(e.target.id==="modal")closeModal()};
+$("#helpBtn").onclick=()=>openModal(`<button class="ib x" onclick="closeModal()">×</button>
+  <div class="c sc" style="font-size:20px">How to Play</div><div class="dbl"></div>
+  <p style="font-size:20px;line-height:1.7">🔨 Bid <b>at or above</b> the real price → it's yours<br>💨 Bid under → you keep your money<br>🎯 Closer bid = more points (max 100)<br>💸 Overpay and you'll run dry</p>
+  <p class="c" style="font-size:18px;white-space:nowrap;margin:6px 0">🟩 90+ &nbsp;🟨 70+ &nbsp;🟧 won &nbsp;⬛ lost</p>
+  <p class="c fell muted" style="font-style:italic">A new catalogue is published every day at midnight.</p>`);
+$("#statsBtn").onclick=()=>{
+  const d=store.get().days, recs=Object.values(d), n=recs.length;
+  const avg=n?Math.round(recs.reduce((a,r)=>a+r.score,0)/n):0, best=n?Math.max(...recs.map(r=>r.score)):0;
+  let streak=0;for(let k=TODAY;d[k];k--)streak++;
+  openModal(`<button class="ib x" onclick="closeModal()">×</button><div class="c sc" style="font-size:20px">Your Record with the House</div><div class="dbl"></div>
+   <div class="stats"><div><b>${n}</b><span>Sales attended</span></div><div><b>${avg}</b><span>Average</span></div><div><b>${best}</b><span>Best</span></div><div><b>${streak}</b><span>Streak</span></div></div>`);
+};
+header();
+$("#app").innerHTML='<div class="orn">❦</div><p class="c fell muted" style="font-style:italic">The porters are bringing out today\'s lots…</p>';
+fetch("lots.json").then(r=>r.json()).then(d=>{LOTS=d;renderIntro()}).catch(()=>{
+  $("#app").innerHTML='<p class="c fell" style="font-style:italic">The catalogue could not be fetched. Please refresh the page.</p>'});
+</script>
+</body>
+</html>

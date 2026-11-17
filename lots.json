@@ -1,0 +1,1127 @@
+[
+{
+"t": "Viatina-19 FIV Mara Imóveis, a Nelore Cow",
+"house": "Livestock auction, Arandu, Brazil",
+"date": "2023",
+"p": 4380000,
+"icon": "cow",
+"d": "A snow-white Nelore cow weighing about 1,100 kg, roughly twice the size of an average adult of her breed. She is prized for fast muscle growth and fertility. A one-third share sold at auction, valuing the whole cow at this price.",
+"f": "Guinness World Records lists her as the most expensive cow ever sold at auction, at more than three times the previous record. Her owners put up highway billboards advertising her.",
+"id": 1
+},
+{
+"t": "An Old Master Painting of Christ as Salvator Mundi",
+"house": "Christie's, New York",
+"date": "November 2017",
+"p": 450312500,
+"icon": "frame",
+"d": "A walnut panel of Christ holding a crystal orb, attributed to Leonardo da Vinci. It was once sold as a copy for about £45.",
+"f": "It's the most expensive artwork ever sold at auction, and it hasn't been seen in public since.",
+"id": 2
+},
+{
+"t": "The 'Lady Blunt' Stradivarius, 1721",
+"house": "Tarisio (online)",
+"date": "June 2011",
+"p": 15900000,
+"icon": "violin",
+"d": "One of the best-preserved Stradivari violins, named after Lord Byron's granddaughter, who owned it.",
+"f": "The proceeds went to relief after the 2011 earthquake and tsunami in Japan.",
+"id": 3
+},
+{
+"t": "Michael Jordan's 'Dynasty Collection' Sneakers",
+"house": "Sotheby's",
+"date": "2024",
+"p": 8032000,
+"icon": "sneaker",
+"d": "Six pairs of game-worn sneakers, one from each of Jordan's six championship-clinching Finals games.",
+"id": 4
+},
+{
+"t": "Rolex Daytona 'Unicorn', Ref. 6265",
+"house": "Phillips, Geneva",
+"date": "May 2018",
+"p": 5937000,
+"icon": "watch",
+"d": "The only known white-gold example of this vintage Daytona reference, from the collection of a famous Rolex scholar.",
+"f": "Collectors call it the Unicorn because it is one of a kind.",
+"id": 5
+},
+{
+"t": "The 1861 Paquet Reverse Double Eagle",
+"house": "Heritage Auctions",
+"date": "August 2021",
+"p": 7200000,
+"icon": "coin",
+"d": "One of two known $20 gold coins with an experimental tall-lettered reverse design.",
+"id": 6
+},
+{
+"t": "Jerry Garcia's 'Tiger' Guitar",
+"house": "Christie's, New York",
+"date": "March 2026",
+"p": 11560000,
+"icon": "guitar",
+"d": "A custom guitar built by luthier Doug Irwin with a tiger inlay. It was the Grateful Dead guitarist's main instrument for years.",
+"f": "The estimate was $1–2 million.",
+"id": 7
+},
+{
+"t": "'Big John', a Triceratops Skeleton",
+"house": "Drouot, Paris",
+"date": "October 2021",
+"p": 7740000,
+"icon": "dino",
+"d": "The largest Triceratops ever found, about 26 feet long, discovered in South Dakota.",
+"f": "It's the most expensive dinosaur ever sold in Europe.",
+"id": 8
+},
+{
+"t": "First Printing of the United States Constitution",
+"house": "Sotheby's, New York",
+"date": "November 2021",
+"p": 43200000,
+"icon": "document",
+"d": "One of only two privately owned copies of the first official printing, made for the convention delegates.",
+"f": "A crypto collective, ConstitutionDAO, raised over $40 million online to buy it, and lost to a hedge-fund chief.",
+"id": 9
+},
+{
+"t": "F.P. Journe 'FFC Blue', Made for Francis Ford Coppola",
+"house": "Christie's, Geneva",
+"date": "November 2021",
+"p": 4934000,
+"icon": "watch",
+"d": "A unique prototype in which a small articulated hand shows the hours. It was conceived with the film director.",
+"id": 10
+},
+{
+"t": "Patek Philippe 'Henry Graves Supercomplication'",
+"house": "Sotheby's, Geneva",
+"date": "November 2014",
+"p": 23983000,
+"icon": "watch",
+"d": "A gold pocket watch commissioned by a New York banker in a rivalry to own the world's most complicated watch.",
+"f": "It's the most expensive pocket watch ever sold at auction.",
+"id": 11
+},
+{
+"t": "A 1962 Ferrari 250 GTO, Sold at Mecum",
+"house": "Mecum Auctions, Kissimmee",
+"date": "January 2026",
+"p": 38500000,
+"icon": "car",
+"d": "A 250 GTO offered at a large public car auction in Florida, not at a boutique sale.",
+"id": 12
+},
+{
+"t": "The 1787 Brasher Doubloon",
+"house": "Heritage Auctions, Dallas",
+"date": "January 2021",
+"p": 9360000,
+"icon": "coin",
+"d": "A gold coin struck by New York goldsmith Ephraim Brasher, stamped with his 'EB' hallmark on the eagle's wing.",
+"id": 13
+},
+{
+"t": "'New Kim', a Belgian Racing Pigeon",
+"house": "PIPA online auction, Belgium",
+"date": "November 2020",
+"p": 1900000,
+"icon": "bird",
+"d": "A two-year-old hen from a famous Antwerp loft, named the best young bird in Belgium in 2018. Bidding opened at €200.",
+"f": "Two Chinese bidders using the handles 'Super Duper' and 'Hitman' fought over her in the final half hour.",
+"id": 14
+},
+{
+"t": "The Kennedy–Lincoln Emancipation Proclamation",
+"house": "Sotheby's, New York",
+"date": "December 2010",
+"p": 3778500,
+"icon": "document",
+"d": "One of 48 commemorative copies signed by Abraham Lincoln, later owned by Robert F. Kennedy.",
+"id": 15
+},
+{
+"t": "The Macallan 1926 'Fine & Rare'",
+"house": "Sotheby's, London",
+"date": "October 2019",
+"p": 1811250,
+"icon": "whisky",
+"d": "A bottle from the same legendary 1926 cask, with the distillery's own label.",
+"id": 16
+},
+{
+"t": "'S Legend', a Kōhaku Koi",
+"house": "Breeder's auction, Japan",
+"date": "2018",
+"p": 1800000,
+"icon": "fish",
+"d": "A nine-year-old, roughly one-metre female koi with the classic red-and-white Kōhaku pattern.",
+"f": "A collector from Taiwan won the bidding.",
+"id": 17
+},
+{
+"t": "Francis Crick's 'Secret of Life' Letter",
+"house": "Christie's, New York",
+"date": "April 2013",
+"p": 6060000,
+"icon": "document",
+"d": "A 1953 letter to his twelve-year-old son explaining the newly discovered structure of DNA.",
+"id": 18
+},
+{
+"t": "Andy Warhol, Shot Sage Blue Marilyn",
+"house": "Christie's, New York",
+"date": "May 2022",
+"p": 195040000,
+"icon": "frame",
+"d": "A 1964 silkscreen of Marilyn Monroe from a series of portraits made two years after her death.",
+"f": "It held the auction record for any 20th-century artwork until the Klimt in this catalogue broke it.",
+"id": 19
+},
+{
+"t": "A 1961 Ferrari 250 GT SWB California Spyder 'Barn Find'",
+"house": "Artcurial, Paris",
+"date": "February 2015",
+"p": 18454304,
+"icon": "car",
+"d": "Found in a French barn under stacks of old magazines, part of a forgotten collection of about sixty cars.",
+"f": "It once belonged to the French actor Alain Delon.",
+"id": 20
+},
+{
+"t": "Steve McQueen's 'Le Mans' Camera Car, a 1968 Ford GT40",
+"house": "RM Auctions, Monterey",
+"date": "August 2012",
+"p": 11000000,
+"icon": "car",
+"d": "A GT40 used as a camera car to film racing scenes for Steve McQueen's 1971 film 'Le Mans'.",
+"id": 21
+},
+{
+"t": "The 'Pink Star' Diamond, 59.60 Carats",
+"house": "Sotheby's, Hong Kong",
+"date": "April 2017",
+"p": 71200000,
+"icon": "gem",
+"d": "The largest internally flawless vivid pink diamond ever graded, the size of a plum.",
+"f": "It's the most expensive gemstone ever sold at auction, at about $1.2 million per carat.",
+"id": 22
+},
+{
+"t": "The Macallan 1926, Adami Label",
+"house": "Sotheby's, London",
+"date": "November 2023",
+"p": 2714250,
+"icon": "whisky",
+"d": "Sixty years in sherry cask, one of twelve bottles with a label painted by Valerio Adami.",
+"f": "It's the most expensive bottle of wine or spirits ever sold at auction.",
+"id": 23
+},
+{
+"t": "Louis Vuitton × Yayoi Kusama Pumpkin Minaudière",
+"house": "Christie's, New York",
+"date": "September 2024",
+"p": 151200,
+"icon": "bag",
+"d": "A polka-dotted, pumpkin-shaped evening bag made for the brand's collaboration with the Japanese artist.",
+"f": "The estimate was $10,000–15,000.",
+"id": 24
+},
+{
+"t": "Action Comics No. 1, CGC 8.5",
+"house": "Heritage Auctions, Dallas",
+"date": "April 2024",
+"p": 6000000,
+"icon": "comic",
+"d": "The 1938 debut of Superman, which sold for ten cents on the newsstand. This is the 'Kansas City' pedigree copy.",
+"f": "Only about a hundred copies are thought to survive, out of 200,000 printed.",
+"id": 25
+},
+{
+"t": "The 1933 Double Eagle",
+"house": "Sotheby's, New York",
+"date": "June 2021",
+"p": 18872250,
+"icon": "coin",
+"d": "A $20 gold coin from a mintage that was almost entirely melted down. It is the only one that can legally be privately owned.",
+"f": "It was once owned by King Farouk of Egypt.",
+"id": 26
+},
+{
+"t": "A Bottle of Romanée-Conti 1945",
+"house": "Sotheby's, New York",
+"date": "October 2018",
+"p": 558000,
+"icon": "wine",
+"d": "A single bottle from the last vintage before the domaine's old vines were replanted. Only about six hundred bottles were made.",
+"f": "It's the most expensive bottle of wine ever sold at auction.",
+"id": 27
+},
+{
+"t": "René Magritte, L'empire des lumières",
+"house": "Christie's, New York",
+"date": "November 2024",
+"p": 121160000,
+"icon": "frame",
+"d": "A street lit by a single lamp at night, under a bright daytime sky. Magritte returned to this theme throughout his career.",
+"f": "It set new auction records for Magritte and for any Surrealist work.",
+"id": 28
+},
+{
+"t": "A 1957 Ferrari 335 S",
+"house": "Artcurial, Paris",
+"date": "February 2016",
+"p": 35730510,
+"icon": "car",
+"d": "A V12 sports racer raced in the Mille Miglia, later owned by a French collector for decades.",
+"id": 29
+},
+{
+"t": "An Hermès Ombré Lizard Birkin 25",
+"house": "Sotheby's, New York",
+"date": "March 2020",
+"p": 137500,
+"icon": "bag",
+"d": "A small Birkin in lizard skin dyed to fade from light to dark.",
+"id": 30
+},
+{
+"t": "The 1903 Fengtien Tael",
+"house": "Beijing Chengxuan Auction",
+"date": "August 2022",
+"p": 6900000,
+"icon": "coin",
+"d": "A unique silver pattern coin from Manchuria, known as the 'King of Chinese Coins'.",
+"f": "It's the most expensive non-American coin ever sold at auction.",
+"id": 31
+},
+{
+"t": "James Naismith's Original Rules of Basketball",
+"house": "Sotheby's, New York",
+"date": "December 2010",
+"p": 4338500,
+"icon": "document",
+"d": "Two typed pages from 1891 setting out the thirteen original rules of the game, which Naismith invented.",
+"id": 32
+},
+{
+"t": "Michael Jordan's 1998 Finals Game-Worn Jersey",
+"house": "Sotheby's, New York",
+"date": "September 2022",
+"p": 10091000,
+"icon": "jersey",
+"d": "The red Chicago jersey from Game One of the 1998 Finals, his 'Last Dance' season.",
+"id": 33
+},
+{
+"t": "The Elizabeth Taylor Diamond",
+"house": "Christie's, New York",
+"date": "December 2011",
+"p": 8800000,
+"icon": "gem",
+"d": "A 33-carat Asscher-cut diamond ring that Richard Burton gave Taylor, who wore it almost every day.",
+"id": 34
+},
+{
+"t": "A 1995 McLaren F1",
+"house": "Gooding & Company, Pebble Beach",
+"date": "August 2021",
+"p": 20465000,
+"icon": "car",
+"d": "A road car with three seats in a row and the driver in the middle, bought new by its owner and barely driven.",
+"id": 35
+},
+{
+"t": "The 1804 Silver Dollar",
+"house": "Stack's Bowers",
+"date": "August 2021",
+"p": 7680000,
+"icon": "coin",
+"d": "Called the 'King of American Coins', this dollar was actually struck in the 1830s for diplomatic gift sets.",
+"id": 36
+},
+{
+"t": "The First Bluefin Tuna of 2019",
+"house": "Toyosu Market New Year auction, Tokyo",
+"date": "January 2019",
+"p": 3082610,
+"icon": "fish",
+"d": "A 278 kg Pacific bluefin from Ōma, sold at the first auction ever held at Toyosu after the old Tsukiji market moved.",
+"f": "The buyer, a sushi chain, still served it at regular menu prices. It went for ¥333.6 million.",
+"id": 37
+},
+{
+"t": "A 1967 Ferrari 275 GTB/4*S NART Spider",
+"house": "RM Auctions, Monterey",
+"date": "August 2013",
+"p": 27500000,
+"icon": "car",
+"d": "One of ten convertibles built for Ferrari's North American dealer, owned by the same family since 1968.",
+"f": "The proceeds went to charity.",
+"id": 38
+},
+{
+"t": "The 'Oppenheimer Blue' Diamond",
+"house": "Christie's, Geneva",
+"date": "May 2016",
+"p": 57500000,
+"icon": "gem",
+"d": "A 14.62-carat vivid blue diamond, named for a member of the De Beers mining family.",
+"id": 39
+},
+{
+"t": "Patek Philippe Ref. 1518 in Pink Gold",
+"house": "Sotheby's, New York",
+"date": "December 2021",
+"p": 9570000,
+"icon": "watch",
+"d": "A pink-gold perpetual-calendar chronograph originally made for an Egyptian prince.",
+"id": 40
+},
+{
+"t": "A Pair of Ruby Slippers from 'The Wizard of Oz'",
+"house": "Heritage Auctions, Dallas",
+"date": "December 2024",
+"p": 32500000,
+"icon": "shoe",
+"d": "Sequined pumps worn by Judy Garland. This pair was stolen from a museum in 2005 and recovered by the FBI in 2018.",
+"f": "The estimate was $3 million. Phone bidders battled for about fifteen minutes.",
+"id": 41
+},
+{
+"t": "Patek Philippe Grandmaster Chime, Ref. 6300A",
+"house": "Christie's, Geneva",
+"date": "November 2019",
+"p": 31194000,
+"icon": "watch",
+"d": "A unique stainless-steel example of Patek's most complicated wristwatch, with twenty complications and a reversible case, made for a charity sale.",
+"f": "It's the most expensive wristwatch ever sold at auction.",
+"id": 42
+},
+{
+"t": "A 1962 Ferrari 250 GTO",
+"house": "RM Sotheby's, Monterey",
+"date": "August 2018",
+"p": 48405000,
+"icon": "car",
+"d": "One of thirty-six 250 GTOs built. Collectors widely consider it the ultimate collector's car.",
+"id": 43
+},
+{
+"t": "The 'Blue Moon of Josephine' Diamond",
+"house": "Sotheby's, Geneva",
+"date": "November 2015",
+"p": 48400000,
+"icon": "gem",
+"d": "A 12.03-carat vivid blue cushion-cut diamond, found in South Africa in 2014.",
+"f": "The buyer, a Hong Kong billionaire, renamed it after his daughter.",
+"id": 44
+},
+{
+"t": "Pablo Picasso, Femme à la montre",
+"house": "Sotheby's, New York",
+"date": "November 2023",
+"p": 139400000,
+"icon": "frame",
+"d": "A 1932 portrait of Picasso's lover and muse Marie-Thérèse Walter, seated and wearing a wristwatch.",
+"f": "It came from the collection of philanthropist Emily Fisher Landau.",
+"id": 45
+},
+{
+"t": "'Sue', a Tyrannosaurus rex Skeleton",
+"house": "Sotheby's, New York",
+"date": "October 1997",
+"p": 8362500,
+"icon": "dino",
+"d": "The largest and most complete T. rex known at the time. It was the first dinosaur ever sold at auction.",
+"f": "Chicago's Field Museum bought it with corporate sponsors, and it still stands there today.",
+"id": 46
+},
+{
+"t": "A 1962 Ferrari 330 LM / 250 GTO",
+"house": "RM Sotheby's, New York",
+"date": "November 2023",
+"p": 51705000,
+"icon": "car",
+"d": "Ferrari's own factory team car, raced at Le Mans and in period endurance races.",
+"f": "It's the most expensive Ferrari ever sold at auction.",
+"id": 47
+},
+{
+"t": "The 1873 'No Arrows' Seated Liberty Dime",
+"house": "Heritage Auctions",
+"date": "January 2023",
+"p": 3600000,
+"icon": "coin",
+"d": "The only known example of this ten-cent piece struck at the Carson City mint.",
+"id": 48
+},
+{
+"t": "A 1952 Topps Mickey Mantle Card, SGC 9.5",
+"house": "Heritage Auctions, Dallas",
+"date": "August 2022",
+"p": 12600000,
+"icon": "card",
+"d": "The most iconic post-war baseball card, in near-mint condition.",
+"f": "Topps once dumped unsold 1952 cards in the ocean to clear warehouse space.",
+"id": 49
+},
+{
+"t": "The Wicked Witch of the West's Hat",
+"house": "Heritage Auctions, Dallas",
+"date": "December 2024",
+"p": 2930000,
+"icon": "hat",
+"d": "Margaret Hamilton's black pointed hat from 'The Wizard of Oz', matched to her first scene in the film.",
+"f": "It sold in the same sale as the ruby slippers.",
+"id": 50
+},
+{
+"t": "A Himalaya Niloticus Crocodile Birkin 30 with Diamonds",
+"house": "Christie's, Hong Kong",
+"date": "May 2017",
+"p": 379261,
+"icon": "bag",
+"d": "Matte white crocodile shading into smoky grey, with 18-karat white gold and diamond hardware.",
+"f": "Collectors call the Himalaya the most coveted bag Hermès makes.",
+"id": 51
+},
+{
+"t": "The 1822 Half Eagle",
+"house": "Stack's Bowers, Las Vegas",
+"date": "March 2021",
+"p": 8400000,
+"icon": "coin",
+"d": "One of three known 1822 $5 gold coins. The other two are in the Smithsonian.",
+"id": 52
+},
+{
+"t": "The Rothschild Prayerbook",
+"house": "Christie's, New York",
+"date": "January 2014",
+"p": 13605000,
+"icon": "book",
+"d": "A lavishly illuminated Flemish book of hours from around 1505.",
+"id": 53
+},
+{
+"t": "Lewis Hamilton's 2013 Mercedes F1 W04",
+"house": "RM Sotheby's, Las Vegas",
+"date": "November 2023",
+"p": 18815000,
+"icon": "car",
+"d": "The car Hamilton drove to his first win for Mercedes, at the 2013 Hungarian Grand Prix.",
+"id": 54
+},
+{
+"t": "A Beatles Bass-Drum Head",
+"house": "Christie's, New York",
+"date": "March 2026",
+"p": 2900000,
+"icon": "drum",
+"d": "A bass-drum head bearing the Beatles' famous logo.",
+"id": 55
+},
+{
+"t": "Amedeo Modigliani, Nu couché",
+"house": "Christie's, New York",
+"date": "November 2015",
+"p": 170405000,
+"icon": "frame",
+"d": "A reclining nude from the artist's celebrated 1917–18 series, which scandalised Paris when first shown.",
+"f": "Police closed Modigliani's only solo show, which included nudes from this series, on the opening day.",
+"id": 56
+},
+{
+"t": "Jane Birkin's 'Le Birkin Voyageur'",
+"house": "Sotheby's, Abu Dhabi",
+"date": "December 2025",
+"p": 2900000,
+"icon": "bag",
+"d": "Jane Birkin's own black leather Birkin 40, well worn on her travels.",
+"f": "It's the second most expensive Birkin ever sold.",
+"id": 57
+},
+{
+"t": "Kurt Cobain's 'Smells Like Teen Spirit' Fender Mustang",
+"house": "Christie's, New York",
+"date": "March 2026",
+"p": 6907000,
+"icon": "guitar",
+"d": "The left-handed 1969 Mustang seen in the music video for Nirvana's breakthrough single.",
+"f": "Cobain liked Mustangs partly because few quality guitars were made for left-handed players.",
+"id": 58
+},
+{
+"t": "Bob Dylan's 'Like a Rolling Stone' Lyrics",
+"house": "Sotheby's, New York",
+"date": "June 2014",
+"p": 2045000,
+"icon": "document",
+"d": "Four pages of hotel stationery with Dylan's pencilled draft of his 1965 hit.",
+"id": 59
+},
+{
+"t": "Elizabeth Taylor's 'La Peregrina' Pearl",
+"house": "Christie's, New York",
+"date": "December 2011",
+"p": 11800000,
+"icon": "gem",
+"d": "A pear-shaped natural pearl found in the 16th century, once owned by Spanish and English queens. Richard Burton gave it to Taylor.",
+"f": "Taylor once lost it in a hotel suite and found her puppy chewing on it.",
+"id": 60
+},
+{
+"t": "John Lennon's Framus Hootenanny 12-String",
+"house": "Julien's Auctions",
+"date": "May 2024",
+"p": 2857500,
+"icon": "guitar",
+"d": "An acoustic played on 'Help!'-era recordings that was lost for over fifty years.",
+"f": "It turned up in an attic in the English countryside.",
+"id": 61
+},
+{
+"t": "'Double Diamond', a Texel Ram Lamb",
+"house": "Lanark livestock auction, Scotland",
+"date": "August 2020",
+"p": 510000,
+"icon": "sheep",
+"d": "A pedigree Texel lamb sold for breeding at the Scottish national sale, beating the previous sheep record by more than £130,000.",
+"f": "It sold for 350,000 guineas, the traditional currency of British livestock auctions.",
+"id": 62
+},
+{
+"t": "Diego Maradona's 'Hand of God' Shirt",
+"house": "Sotheby's, London",
+"date": "May 2022",
+"p": 9280000,
+"icon": "jersey",
+"d": "The Argentina shirt from the 1986 World Cup quarter-final against England, when he scored with his hand and then a famous solo goal.",
+"f": "England's Steve Hodge kept it after swapping shirts at the end of the match.",
+"id": 63
+},
+{
+"t": "The Original Birkin Bag, from Jane Birkin",
+"house": "Sotheby's, Paris",
+"date": "July 2025",
+"p": 10100000,
+"icon": "bag",
+"d": "The prototype Hermès made for the actress after she complained about her bag to the company's chief executive on a flight.",
+"f": "It's the most expensive handbag ever sold at auction.",
+"id": 64
+},
+{
+"t": "Bach's Autograph Manuscript, BWV 998",
+"house": "Christie's, London",
+"date": "July 2016",
+"p": 3330000,
+"icon": "document",
+"d": "A handwritten Prelude, Fugue and Allegro for lute or harpsichord, one of very few Bach manuscripts in private hands.",
+"id": 65
+},
+{
+"t": "John Lennon's Psychedelic 1965 Rolls-Royce Phantom V",
+"house": "Sotheby's, New York",
+"date": "June 1985",
+"p": 2229000,
+"icon": "car",
+"d": "A black limousine Lennon had repainted in swirling Romany-caravan colours in 1967.",
+"f": "It was bought by Canadian businessman Jim Pattison, who later donated it to a museum in British Columbia.",
+"id": 66
+},
+{
+"t": "Shakespeare's First Folio",
+"house": "Christie's, New York",
+"date": "October 2020",
+"p": 9978000,
+"icon": "book",
+"d": "The 1623 collection that preserved eighteen of Shakespeare's plays that would otherwise have been lost.",
+"f": "It's the most expensive work of literature ever sold at auction.",
+"id": 67
+},
+{
+"t": "Georges Seurat, Les Poseuses, Ensemble (Petite version)",
+"house": "Christie's, New York",
+"date": "November 2022",
+"p": 149240000,
+"icon": "frame",
+"d": "A pointillist painting of three models in the artist's studio, painted in tiny dots of pure colour.",
+"f": "It was offered from the collection of Microsoft co-founder Paul Allen, whose collection sale raised over $1.5 billion.",
+"id": 68
+},
+{
+"t": "Michael Jordan's 'Last Dance' Air Jordan 13s",
+"house": "Sotheby's, New York",
+"date": "April 2023",
+"p": 2238000,
+"icon": "sneaker",
+"d": "Signed, game-worn sneakers from Game Two of the 1998 Finals.",
+"f": "It's the most expensive pair of game-worn sneakers ever sold at auction.",
+"id": 69
+},
+{
+"t": "Kurt Cobain's 'MTV Unplugged' Martin D-18E",
+"house": "Julien's Auctions, Beverly Hills",
+"date": "June 2020",
+"p": 6010000,
+"icon": "guitar",
+"d": "The left-handed 1959 acoustic-electric he played at the 1993 Unplugged taping.",
+"f": "The buyer, a microphone-company founder, later lent it to the Royal College of Music.",
+"id": 70
+},
+{
+"t": "Mercedes-Benz W196R 'Stromlinienwagen', 1954",
+"house": "RM Sotheby's, Stuttgart",
+"date": "February 2025",
+"p": 53917370,
+"icon": "car",
+"d": "A streamlined Formula One car with fully enclosed bodywork, raced in the 1950s Mercedes Silver Arrows era.",
+"f": "It's the most expensive Formula One car ever sold at auction.",
+"id": 71
+},
+{
+"t": "Breton's Surrealist Manifesto",
+"house": "Sotheby's, Paris",
+"date": "May 2008",
+"p": 2970000,
+"icon": "document",
+"d": "André Breton's handwritten 1924 manuscript that launched the Surrealist movement.",
+"id": 72
+},
+{
+"t": "John Lennon's 1962 Gibson J-160E",
+"house": "Julien's Auctions, Beverly Hills",
+"date": "November 2015",
+"p": 2410000,
+"icon": "guitar",
+"d": "An acoustic-electric Lennon used for early Beatles songs. It went missing in 1963.",
+"id": 73
+},
+{
+"t": "Pablo Picasso, Les Femmes d'Alger (Version 'O')",
+"house": "Christie's, New York",
+"date": "May 2015",
+"p": 179365000,
+"icon": "frame",
+"d": "The final canvas in a fifteen-part series painted in homage to Delacroix, filled with fractured, colourful figures.",
+"f": "At the time, it set the auction record for any artwork.",
+"id": 74
+},
+{
+"t": "Patek Philippe 'Heures Universelles' Ref. 2523",
+"house": "Christie's, Hong Kong",
+"date": "November 2019",
+"p": 8967000,
+"icon": "watch",
+"d": "A two-crown world-time wristwatch double-signed by the Milan retailer Gobbi, with an enamel map dial.",
+"id": 75
+},
+{
+"t": "Eddie Van Halen's Striped Kramer",
+"house": "Sotheby's",
+"date": "2023",
+"p": 3932000,
+"icon": "guitar",
+"d": "A red, white and black striped guitar Van Halen built from parts, descended from his famous 'Frankenstein'.",
+"id": 76
+},
+{
+"t": "Francis Bacon, Three Studies of Lucian Freud",
+"house": "Christie's, New York",
+"date": "November 2013",
+"p": 142405000,
+"icon": "frame",
+"d": "A 1969 triptych of the painter's friend and rival, seated on a chair inside a cage-like frame.",
+"f": "At the time, it was the most expensive artwork ever sold at auction.",
+"id": 77
+},
+{
+"t": "Mark McGwire's 70th Home Run Ball",
+"house": "Guernsey's, New York",
+"date": "January 1999",
+"p": 3005000,
+"icon": "ball",
+"d": "The ball from McGwire's record-setting 70th home run of the 1998 season.",
+"f": "The buyer was comic-book creator Todd McFarlane.",
+"id": 78
+},
+{
+"t": "Paul Newman's Own Rolex Daytona, Ref. 6239",
+"house": "Phillips, New York",
+"date": "October 2017",
+"p": 17752500,
+"icon": "watch",
+"d": "A steel chronograph engraved on the caseback by Joanne Woodward for her husband, the actor and racing driver.",
+"f": "It's the most expensive watch ever sold at auction in North America.",
+"id": 79
+},
+{
+"t": "Caxton's First Edition of The Canterbury Tales",
+"house": "Christie's, London",
+"date": "July 1998",
+"p": 7570000,
+"icon": "book",
+"d": "Chaucer's tales as printed by William Caxton in 1477, one of the first books printed in England.",
+"id": 80
+},
+{
+"t": "A Gold Dinar of Caliph Yazid II, AD 723",
+"house": "Morton & Eden, London",
+"date": "April 2011",
+"p": 6029400,
+"icon": "coin",
+"d": "An early Islamic gold coin said to be struck from gold from the caliph's own mine near Mecca.",
+"id": 81
+},
+{
+"t": "'Love is in the Bin', a Shredded Canvas",
+"house": "Sotheby's, London",
+"date": "October 2021",
+"p": 25400000,
+"icon": "frame",
+"d": "A painting of a girl with a heart-shaped balloon that shredded itself in its frame moments after the hammer fell in 2018.",
+"f": "In 2018 the buyer paid about £1 million. Three years later the half-shredded work sold for roughly eighteen times that.",
+"id": 82
+},
+{
+"t": "Babe Ruth's 1932 'Called Shot' World Series Jersey",
+"house": "Heritage Auctions, Dallas",
+"date": "August 2024",
+"p": 24120000,
+"icon": "jersey",
+"d": "The road jersey from the game in which Ruth is said to have pointed to centre field and then homered there.",
+"f": "It's the most expensive piece of sports memorabilia ever sold at auction.",
+"id": 83
+},
+{
+"t": "Pierre de Coubertin's Olympic Manifesto",
+"house": "Sotheby's, New York",
+"date": "December 2019",
+"p": 8800000,
+"icon": "document",
+"d": "The handwritten 14-page speech from 1892 in which the founder of the modern Olympics proposed reviving the Games.",
+"id": 84
+},
+{
+"t": "Eric Clapton's 1939 Martin 000-42",
+"house": "Christie's, New York",
+"date": "March 2026",
+"p": 4101000,
+"icon": "guitar",
+"d": "The acoustic Clapton played on his 1992 'Unplugged' album.",
+"f": "It's the most ever paid for a Martin acoustic. In 2004 it sold for $791,500.",
+"id": 85
+},
+{
+"t": "The Hutton-Mdivani Jadeite Necklace",
+"house": "Sotheby's, Hong Kong",
+"date": "April 2014",
+"p": 27440000,
+"icon": "gem",
+"d": "Twenty-seven graduated emerald-green jadeite beads, a wedding gift to the heiress Barbara Hutton.",
+"f": "It's the most expensive jadeite jewel ever sold.",
+"id": 86
+},
+{
+"t": "Patek Philippe Stainless Steel Ref. 1518",
+"house": "Phillips, Geneva",
+"date": "November 2016",
+"p": 11137000,
+"icon": "watch",
+"d": "One of only four known 1940s perpetual-calendar chronographs in steel. The model usually came in gold.",
+"id": 87
+},
+{
+"t": "Marilyn Monroe's White 'Subway' Dress",
+"house": "Profiles in History, Los Angeles",
+"date": "June 2011",
+"p": 5600000,
+"icon": "dress",
+"d": "The ivory halter dress that billows up over a subway grate in 'The Seven Year Itch'.",
+"id": 88
+},
+{
+"t": "Beeple, EVERYDAYS: The First 5000 Days",
+"house": "Christie's (online)",
+"date": "March 2021",
+"p": 69346250,
+"icon": "screen",
+"d": "A JPEG collage of every image the artist posted online each day for more than thirteen years, sold as an NFT.",
+"f": "Bidding opened at $100. It was Christie's first purely digital artwork.",
+"id": 89
+},
+{
+"t": "Jodorowsky's Dune Storyboard Book",
+"house": "Christie's, Paris",
+"date": "November 2021",
+"p": 3030000,
+"icon": "book",
+"d": "One of the few surviving pitch books for a legendary unmade 1970s film adaptation of 'Dune'.",
+"f": "The buyers thought it gave them film rights. It didn't.",
+"id": 90
+},
+{
+"t": "Gustav Klimt, Dame mit Fächer (Lady with a Fan)",
+"house": "Sotheby's, London",
+"date": "June 2023",
+"p": 108700000,
+"icon": "frame",
+"d": "Klimt's last portrait: a woman against a gold-and-turquoise background of birds and flowers, still on his easel when he died in 1918.",
+"id": 91
+},
+{
+"t": "Princess Diana's 'Black Sheep' Jumper",
+"house": "Sotheby's, New York",
+"date": "September 2023",
+"p": 1143000,
+"icon": "dress",
+"d": "A red knitted sweater with rows of white sheep and one black one, worn in 1981, the year she married Prince Charles.",
+"f": "The estimate was $50,000–80,000. Bidding jumped from $190,000 in the final fifteen minutes.",
+"id": 92
+},
+{
+"t": "Einstein's 'God Letter'",
+"house": "Christie's, New York",
+"date": "December 2018",
+"p": 2892500,
+"icon": "document",
+"d": "A 1954 handwritten letter in German in which the physicist calls religion a childish superstition.",
+"id": 93
+},
+{
+"t": "David Gilmour's 'Black Strat'",
+"house": "Christie's, New York",
+"date": "March 2026",
+"p": 14550000,
+"icon": "guitar",
+"d": "The Pink Floyd guitarist's main guitar for decades, heard on the band's landmark albums.",
+"f": "It sold for $3.975 million in 2019 and was resold at this sale for more than three times that.",
+"id": 94
+},
+{
+"t": "A 1956 Aston Martin DBR1",
+"house": "RM Sotheby's, Monterey",
+"date": "August 2017",
+"p": 22550000,
+"icon": "car",
+"d": "The first DBR1 ever built, raced by Stirling Moss among others.",
+"f": "It's the most expensive British car ever sold at auction.",
+"id": 95
+},
+{
+"t": "The First Bluefin Tuna of 2026",
+"house": "Toyosu Market New Year auction, Tokyo",
+"date": "January 2026",
+"p": 3200000,
+"icon": "fish",
+"d": "A bluefin caught off Ōma in northern Japan, sold in the ceremonial first auction of the year.",
+"f": "Ōma tuna is widely considered the finest in Japan. Winning the first auction of the year is as much about publicity as about the fish.",
+"id": 96
+},
+{
+"t": "Gary Cooper's 1935 Duesenberg SSJ",
+"house": "Gooding & Company, Pebble Beach",
+"date": "August 2018",
+"p": 22000000,
+"icon": "car",
+"d": "One of two short-wheelbase supercharged Duesenbergs built. This one was first owned by the film star.",
+"id": 97
+},
+{
+"t": "Gustav Klimt, Portrait of Elisabeth Lederer",
+"house": "Sotheby's, New York",
+"date": "November 2025",
+"p": 236400000,
+"icon": "frame",
+"d": "A six-foot full-length portrait of the daughter of Klimt's greatest patrons, painted between 1914 and 1916. She wears an imperial Chinese dragon robe.",
+"f": "During the war, Lederer claimed Klimt was her real father, a story that helped protect her from Nazi persecution.",
+"id": 98
+},
+{
+"t": "The 1297 Magna Carta",
+"house": "Sotheby's, New York",
+"date": "December 2007",
+"p": 21320000,
+"icon": "document",
+"d": "A rare official reissue of the English charter of liberties, sealed by King Edward I.",
+"id": 99
+},
+{
+"t": "'Stan', a Tyrannosaurus rex Skeleton",
+"house": "Christie's, New York",
+"date": "October 2020",
+"p": 31847500,
+"icon": "dino",
+"d": "One of the most complete T. rex skeletons ever found, named after the amateur palaeontologist who discovered it.",
+"f": "It is now on display at a natural history museum in Abu Dhabi.",
+"id": 100
+},
+{
+"t": "A 1955 Jaguar D-Type",
+"house": "RM Sotheby's, Monterey",
+"date": "August 2016",
+"p": 21780000,
+"icon": "car",
+"d": "The car that won the 1956 24 Hours of Le Mans, in Ecurie Ecosse blue.",
+"f": "It's the most expensive Jaguar ever sold at auction.",
+"id": 101
+},
+{
+"t": "'Apex', a Stegosaurus Skeleton",
+"house": "Sotheby's, New York",
+"date": "July 2024",
+"p": 44600000,
+"icon": "dino",
+"d": "An exceptionally complete adult stegosaurus found in Colorado, with most of its bones.",
+"f": "It sold for about seven times its high estimate, to a hedge-fund billionaire.",
+"id": 102
+},
+{
+"t": "The $1 Million Canadian Gold Maple Leaf",
+"house": "Dorotheum, Vienna",
+"date": "June 2010",
+"p": 4070000,
+"icon": "coin",
+"d": "A 100-kilogram coin of pure gold, about half a metre across, with a face value of one million Canadian dollars.",
+"f": "Its price was not much above the value of its gold.",
+"id": 103
+},
+{
+"t": "The 'Happy Birthday, Mr. President' Gown",
+"house": "Julien's Auctions, Los Angeles",
+"date": "November 2016",
+"p": 4800000,
+"icon": "dress",
+"d": "A sheer gown covered in thousands of hand-sewn crystals, worn by Marilyn Monroe at Madison Square Garden in 1962.",
+"id": 104
+},
+{
+"t": "The Bay Psalm Book",
+"house": "Sotheby's, New York",
+"date": "November 2013",
+"p": 14165000,
+"icon": "book",
+"d": "The first book printed in British North America, made in Massachusetts in 1640.",
+"id": 105
+},
+{
+"t": "'Gus', a Tyrannosaurus rex Skeleton",
+"house": "Sotheby's, New York",
+"date": "July 2026",
+"p": 50100000,
+"icon": "dino",
+"d": "A 38-foot T. rex dug up on a South Dakota cattle ranch between 2021 and 2023. Its skull is so heavy it is displayed separately.",
+"f": "The pre-sale estimate was $20–30 million. Seven bidders fought for about ten minutes.",
+"id": 106
+},
+{
+"t": "Mercedes-Benz 300 SLR 'Uhlenhaut' Coupé, 1955",
+"house": "RM Sotheby's, Stuttgart",
+"date": "May 2022",
+"p": 143000000,
+"icon": "car",
+"d": "One of only two built, named after the engineer who used it as his personal company car.",
+"f": "It's the most expensive car ever sold, sold in a sealed auction for invited bidders only.",
+"id": 107
+},
+{
+"t": "Leonardo da Vinci's Codex Leicester",
+"house": "Christie's, New York",
+"date": "November 1994",
+"p": 30800000,
+"icon": "book",
+"d": "Leonardo's notebook on water, fossils and the moon, written in his mirror-image handwriting.",
+"f": "The buyer was Bill Gates.",
+"id": 108
+},
+{
+"t": "'Armando', a Belgian Racing Pigeon",
+"house": "PIPA online auction, Belgium",
+"date": "March 2019",
+"p": 1400000,
+"icon": "bird",
+"d": "A champion long-distance racing cock, nicknamed the 'Lewis Hamilton of pigeons', sold as a breeding bird.",
+"f": "The same anonymous buyer bought New Kim the following year.",
+"id": 109
+},
+{
+"t": "Rolex Ref. 6062 'Bao Dai'",
+"house": "Phillips, Geneva",
+"date": "May 2017",
+"p": 5060000,
+"icon": "watch",
+"d": "A gold moon-phase triple-calendar watch with a black diamond-set dial, once owned by Vietnam's last emperor.",
+"id": 110
+},
+{
+"t": "A Gold Aureus of Brutus, 42 BC",
+"house": "Roma Numismatics, London",
+"date": "October 2020",
+"p": 4174950,
+"icon": "coin",
+"d": "A Roman gold coin celebrating the assassination of Julius Caesar, issued by one of the assassins.",
+"id": 111
+},
+{
+"t": "Patek Philippe Nautilus Ref. 5711 'Tiffany Blue'",
+"house": "Phillips, New York",
+"date": "December 2021",
+"p": 6503000,
+"icon": "watch",
+"d": "One of 170 steel Nautilus watches with a Tiffany-blue dial, made to mark the retailer's 170th anniversary.",
+"f": "The retail price was about $52,000.",
+"id": 112
+},
+{
+"t": "'America', a Solid Gold Working Toilet",
+"house": "Sotheby's, New York",
+"date": "November 2025",
+"p": 12100000,
+"icon": "toilet",
+"d": "A fully functional toilet cast in solid 18-karat gold, by the artist Maurizio Cattelan. A sister edition was famously stolen from an English palace.",
+"f": "It sold in the same evening sale as the record-breaking Klimt.",
+"id": 113
+},
+{
+"t": "Mahler's Manuscript Score of Symphony No. 2",
+"house": "Sotheby's, London",
+"date": "November 2016",
+"p": 5680000,
+"icon": "document",
+"d": "The complete handwritten score of the 'Resurrection' Symphony.",
+"f": "It's the most expensive music manuscript ever sold at auction.",
+"id": 114
+},
+{
+"t": "The Codex Sassoon, a Hebrew Bible",
+"house": "Sotheby's, New York",
+"date": "May 2023",
+"p": 38100000,
+"icon": "book",
+"d": "The earliest near-complete Hebrew Bible, handwritten on parchment around the year 900.",
+"id": 115
+},
+{
+"t": "Amazing Fantasy No. 15, CGC 9.6",
+"house": "Heritage Auctions, Dallas",
+"date": "September 2021",
+"p": 3600000,
+"icon": "comic",
+"d": "The 1962 comic that introduced Spider-Man, in near-mint condition.",
+"id": 116
+},
+{
+"t": "Audubon's The Birds of America",
+"house": "Christie's, New York",
+"date": "June 2018",
+"p": 9650000,
+"icon": "book",
+"d": "A complete set of the giant hand-coloured bird prints, each bird shown life-size.",
+"f": "This book appears on the list of most expensive books eight separate times.",
+"id": 117
+}
+]
